@@ -1,16 +1,16 @@
-clear
-close all
-N = 1e3;
-avg_noise = 100e-12;
-peak_value = 60000e-12; 
+clear                             %Clears matlab
+close all                         %Closes all matlab figure windows
+N = 1e4;                          %Number of entries in arrays
+avg_noise = 100e-12;              %T/Hz^1/2
+peak_value = 60000e-12;           %T/Hz^1/2
 
-max_freq = 100;
-sample_freq = 2*max_freq;
+max_freq = 100;                   %Hz
+sample_freq = 2*max_freq;         %Hz
 
-f = linspace(0,max_freq,N);
-baseline = avg_noise * ones(N,1).';
-powerline_peak = peak_value * exp(-1.*abs(f-60));
-p = baseline + powerline_peak;
+f = linspace(0,max_freq,N);       %Hz
+baseline = avg_noise * ones(1,N); %T/Hz^1/2
+powerline_peak = peak_value * exp(-1*abs(f-60)); %T/Hz^1/2
+p = baseline + powerline_peak;    %T/Hz^1/2
 
 hfir = fir2(N, f/max_freq, sqrt(p));
 [mag_h, h_freq] = freqz(hfir, 1, N, sample_freq);
