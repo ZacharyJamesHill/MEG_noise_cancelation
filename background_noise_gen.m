@@ -12,7 +12,7 @@ baseline = avg_noise * ones(1,N); %T/Hz^1/2
 powerline_peak = peak_value * exp(-1*abs(f-60)); %T/Hz^1/2
 p = baseline + powerline_peak;    %T/Hz^1/2
 
-hfir = fir2(N, f/max_freq, sqrt(p));
+hfir = fir2(5e2, f/max_freq, sqrt(p));  %Generates fir filter coefficients
 [mag_h, h_freq] = freqz(hfir, 1, N, sample_freq);
 
 
