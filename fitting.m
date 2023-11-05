@@ -7,3 +7,4 @@ hold on
 xvals = linspace(0,1,100);
 plot(xvals, polyval(coefs,xvals))
 hold off
+save("coherence_coefs.mat", "coefs")
