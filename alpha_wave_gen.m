@@ -18,6 +18,17 @@ white_noise = randn(N*100, 1);
 
 noise = filter(hfir, 1, white_noise);
 
+
+[noise_power, noise_freq] = pwelch(noise,[],[],[], 2*max_freq);
+
+noise_power = noise_power*max_freq;
+
+plot(noise_freq, noise_power)
+title("PSD of Generated Alpha Rhythm signal")
+xlabel("Freq [Hz]")
+ylabel("fT^2/Hz")
+
+
 writematrix(noise, "alphawave_fs_10khz.csv")
        
 
