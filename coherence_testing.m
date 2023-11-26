@@ -58,8 +58,10 @@ for i = 1:n_sources
     sources(:,i) = filter(hfir, 1, white_noise_signals(:,i));
 end
 
-% creating points on circle for sources
-phases = linspace(0,2*pi,n_sources);
+% creating points on circle for sources redefinition is to prevent double
+% source at 0/2pi
+phases = linspace(0,2*pi,n_sources+1); 
+phases = phases(1:end-1); 
 r = 1.985; % distance from origin in meters
 x_coords = r*cos(phases);
 y_coords = r*sin(phases);
