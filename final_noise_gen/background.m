@@ -7,7 +7,7 @@ sample_freq = config.samplerate_hz;
 max_freq = sample_freq/2;
 total_samples = config.duration_sec*sample_freq;
 
-N = total_samples*10;
+N = total_samples*100;
 avg_noise = 100e-12; 
 peak_value = 60000e-12; 
 
@@ -61,7 +61,9 @@ writematrix(signals, "sensor_background_noise.csv")
 noise_power = noise_power*max_freq;
 figure
 plot(noise_freq, noise_power)
-
+title("PSD of Filtered Noise")
+xlabel("Freq [Hz]")
+ylabel("T/Hz^{1/2}")
 
 % Generates a signal by mixing from a circle of signals acoording to
 % distance to each signal from the input xy coordinate

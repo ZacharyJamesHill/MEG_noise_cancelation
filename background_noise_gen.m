@@ -31,6 +31,8 @@ white_noise = randn(N*8, 1);
 
 noise = filter(hfir, 1, white_noise);
 
+writematrix(noise, "./final_noise_gen/noise.csv")
+
 figure
 subplot(2,1,1)
 plot(white_noise)
