@@ -21,9 +21,9 @@ hfir = fir2(N, f/max_freq, sqrt(p));
 
 white_noise = randn(N, 1);
 
-noise = filter(hfir, 1, white_noise);
+alpha_wave = filter(hfir, 1, white_noise);
 %Taking end of generated noise to compensate for FIR filter delay
-noise = noise(end-total_samples:end);
+alpha_wave = alpha_wave(end-total_samples:end);
 
 % [noise_power, noise_freq] = pwelch(noise,[],[],[], sample_freq);
 % 
@@ -43,7 +43,7 @@ noise = noise(end-total_samples:end);
 % xlim([0,100])
 % title("white noise psd")
 
-writematrix(noise, "alphawave.csv")
+writematrix(alpha_wave, "alphawave.csv")
        
 
 
