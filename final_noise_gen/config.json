@@ -19,7 +19,7 @@
         -0.5,
         -0.35355339059327384
     ],
-    "samplerate_hz": 200,
-    "duration_sec": 10,
+    "samplerate_hz": 150,
+    "duration_sec": 2.5,
     "n_sensors": 8
 }

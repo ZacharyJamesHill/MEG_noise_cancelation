@@ -19,7 +19,7 @@ p = baseline + powerline_peak;
 
 hfir = fir2(N, f/max_freq, sqrt(p));
 
-n_sources = 1e3;
+n_sources = 100;
 
 % Generating an array of noise signals 
 white_noise_signals =randn(N, n_sources);

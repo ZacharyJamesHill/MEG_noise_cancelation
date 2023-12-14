@@ -43,7 +43,7 @@ alpha_wave = alpha_wave(end-total_samples:end);
 % xlim([0,100])
 % title("white noise psd")
 
-writematrix(alpha_wave, "alphawave.csv")
+writematrix(alpha_wave, "./final_noise_gen/alphawave.csv")
        
 
 
